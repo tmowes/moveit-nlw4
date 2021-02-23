@@ -1,8 +1,8 @@
-import { NextPage } from 'next';
-import Home from './Home';
+import { NextPage } from 'next'
+import Home from './Home'
 
 const App: NextPage = () => {
-  return <Home />;
-};
+  return <Home />
+}
 
-export default App;
+export default App

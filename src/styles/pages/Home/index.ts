@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
@@ -8,7 +8,7 @@ export const Container = styled.div`
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
-`;
+`
 
 export const Title = styled.h1`
   ${({ theme: { colors } }) => css`
@@ -18,4 +18,15 @@ export const Title = styled.h1`
     margin-bottom: 0;
     color: ${colors.orange};
   `}
-`;
+`
+export const LefSection = styled.section`
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6.25rem;
+  align-content: center;
+`
+
+export const ProfileView = styled.div``
+
+export const CountDownView = styled.div``

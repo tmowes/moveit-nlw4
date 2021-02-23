@@ -46,6 +46,6 @@ const dark = {
     nlwTwitter: '#2AA9E0',
   },
   shadow: '2px 2px 16px 6px rgba(0, 0, 0, 0.2)',
-} as const;
+} as const
 
-export default dark;
+export default dark

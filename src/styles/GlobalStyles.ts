@@ -1,5 +1,5 @@
-import { shade, tint } from 'polished';
-import { createGlobalStyle, css } from 'styled-components';
+import { shade, tint } from 'polished'
+import { createGlobalStyle, css } from 'styled-components'
 
 export default createGlobalStyle`
 ${({ theme: { colors } }) => css`
@@ -86,4 +86,4 @@ ${({ theme: { colors } }) => css`
     padding: 0;
   }
 `}
-`;
+`

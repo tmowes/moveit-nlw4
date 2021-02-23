@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const Container = styled.header`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 2.5rem 0;
-`;
+`
 
 export const XPText = styled.span`
   font-size: 1rem;
-`;
+`
 
 export const Bar = styled.div`
   ${({ theme: { colors } }) => css`
@@ -22,22 +22,20 @@ export const Bar = styled.div`
     overflow: hidden;
     position: relative;
   `}
-`;
+`
 export const Progress = styled.div`
   ${({ theme: { colors } }) => css`
     width: 50%;
     height: 100%;
     background: ${colors.nlwGreen};
   `}
-`;
+`
 export const ProgressText = styled.span`
-  ${({ theme: { colors } }) => css`
-    position: absolute;
-    left: 50%;
-    top: 48px;
-    transform: translateX(-50%);
-    font-size: 1rem;
-  `}
-`;
+  position: absolute;
+  left: 50%;
+  top: 56px;
+  transform: translateX(-50%);
+  font-size: 1rem;
+`
 
 // 'password: #rumoaoproximonivel'

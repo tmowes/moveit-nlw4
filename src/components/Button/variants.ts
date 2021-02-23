@@ -1,5 +1,5 @@
-import { shade, tint } from 'polished';
-import { css } from 'styled-components';
+import { shade, tint } from 'polished'
+import { css } from 'styled-components'
 
 export const variants = {
   primary: css`
@@ -8,11 +8,9 @@ export const variants = {
       background: ${colors.orange};
       :hover {
         color: ${tint(0.16, colors.white)};
-        transform: scale(1.01);
       }
       :active {
         color: ${shade(0.16, colors.white)};
-        transform: scale(0.99);
       }
     `}
   `,
@@ -52,4 +50,4 @@ export const variants = {
       }
     `}
   `,
-};
+}

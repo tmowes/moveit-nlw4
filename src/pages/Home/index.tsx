@@ -8,6 +8,14 @@ const Home: NextPage = () => {
     <S.Container>
       <C.MetaTags title="Home" />
       <C.XPBar />
+      <S.LefSection>
+        <S.ProfileView>
+          <C.Profile />
+        </S.ProfileView>
+        <S.CountDownView>
+          <C.Profile />
+        </S.CountDownView>
+      </S.LefSection>
       <S.Title>Hello Julius</S.Title>
       <C.Button label="custom primary" variant="primary" />
       <C.Button label="custom secondary" variant="secondary" />

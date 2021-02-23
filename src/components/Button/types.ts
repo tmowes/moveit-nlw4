@@ -1,19 +1,19 @@
-import { ButtonHTMLAttributes, ComponentType } from 'react';
-import type { IconBaseProps } from 'react-icons';
+import { ButtonHTMLAttributes, ComponentType } from 'react'
+import type { IconBaseProps } from 'react-icons'
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  label: string;
-  variant?: Variants;
-  icon?: ComponentType<IconBaseProps>;
-};
+  label: string
+  variant?: Variants
+  icon?: ComponentType<IconBaseProps>
+}
 
 export type VariantStyledProps = {
-  variant?: Variants;
-};
+  variant?: Variants
+}
 
 export type Variants =
   | 'default'
   | 'primary'
   | 'secondary'
   | 'tertiary'
-  | undefined;
+  | undefined
