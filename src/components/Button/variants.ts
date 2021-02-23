@@ -1,0 +1,55 @@
+import { shade, tint } from 'polished';
+import { css } from 'styled-components';
+
+export const variants = {
+  primary: css`
+    ${({ theme: { colors } }) => css`
+      color: ${colors.white};
+      background: ${colors.orange};
+      :hover {
+        color: ${tint(0.16, colors.white)};
+        transform: scale(1.01);
+      }
+      :active {
+        color: ${shade(0.16, colors.white)};
+        transform: scale(0.99);
+      }
+    `}
+  `,
+  secondary: css`
+    ${({ theme: { colors } }) => css`
+      color: ${colors.white};
+      background: ${colors.indigo};
+      :hover {
+        color: ${tint(0.16, colors.white)};
+      }
+      :active {
+        color: ${shade(0.16, colors.white)};
+      }
+    `}
+  `,
+  tertiary: css`
+    ${({ theme: { colors } }) => css`
+      color: ${colors.orange};
+      background: ${colors.shape};
+      :hover {
+        color: ${tint(0.16, colors.orange)};
+      }
+      :active {
+        color: ${shade(0.16, colors.orange)};
+      }
+    `}
+  `,
+  default: css`
+    ${({ theme: { colors } }) => css`
+      color: ${colors.white};
+      background: ${colors.shape};
+      :hover {
+        color: ${tint(0.16, colors.white)};
+      }
+      :active {
+        color: ${shade(0.16, colors.white)};
+      }
+    `}
+  `,
+};
