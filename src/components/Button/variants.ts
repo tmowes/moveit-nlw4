@@ -17,7 +17,7 @@ export const variants = {
   secondary: css`
     ${({ theme: { colors } }) => css`
       color: ${colors.white};
-      background: ${colors.indigo};
+      background: ${colors.nlwBlue};
       :hover {
         color: ${tint(0.16, colors.white)};
       }

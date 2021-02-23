@@ -1,18 +1,17 @@
-import { useState } from 'react'
 import * as S from './styles'
 import { ButtonProps } from './types'
 
 const Button = (props: ButtonProps) => {
-  const { type = 'button', variant = 'default', label, icon: Icon } = props
-  const [count, setCount] = useState(0)
+  const {
+    type = 'button',
+    variant = 'default',
+    label,
+    icon: Icon,
+    onClick,
+  } = props
   return (
-    <S.Container
-      type={type}
-      variant={variant}
-      onClick={() => setCount(prev => prev + 1)}
-    >
+    <S.Container type={type} variant={variant} onClick={onClick}>
       <S.Label>{label}</S.Label>
-      <S.Label>{count}</S.Label>
       {Icon && <Icon size={20} />}
     </S.Container>
   )

@@ -32,6 +32,7 @@ const MetaTags = ({ title, description, canonical, image }: MetaTagsProps) => {
       {canonical && <link rel="canonical" href={canonical} />}
       <link rel="icon" type="image/png" href="/static/images/favicon.ico" />
       <link rel="apple-touch-icon" href="/static/images/favicon.ico" />
+      <link rel="shortcut icon" href="favicon.png" type="image/png" />
     </Head>
   )
 }

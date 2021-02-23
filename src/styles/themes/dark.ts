@@ -45,7 +45,10 @@ const dark = {
     nlwBlueDark: '#4953B8',
     nlwTwitter: '#2AA9E0',
   },
-  shadow: '2px 2px 16px 6px rgba(0, 0, 0, 0.2)',
+  shadows: {
+    default: '2px 2px 16px 6px rgba(0, 0, 0, 0.2)',
+    smooth: '0 0 60px rgba(0, 0, 0, 0.05)',
+  },
 } as const
 
 export default dark

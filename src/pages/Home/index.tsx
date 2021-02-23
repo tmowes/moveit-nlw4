@@ -11,10 +11,10 @@ const Home: NextPage = () => {
       <S.LefSection>
         <S.ProfileView>
           <C.Profile />
+          <C.CompletedChallenges />
+          <C.Countdown />
         </S.ProfileView>
-        <S.CountDownView>
-          <C.Profile />
-        </S.CountDownView>
+        <S.CountDownView>#</S.CountDownView>
       </S.LefSection>
       <S.Title>Hello Julius</S.Title>
       <C.Button label="custom primary" variant="primary" />
