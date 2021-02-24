@@ -8,9 +8,10 @@ const Button = (props: ButtonProps) => {
     label,
     icon: Icon,
     onClick,
+    ...rest
   } = props
   return (
-    <S.Container type={type} variant={variant} onClick={onClick}>
+    <S.Container type={type} variant={variant} onClick={onClick} {...rest}>
       <S.Label>{label}</S.Label>
       {Icon && <Icon size={20} />}
     </S.Container>

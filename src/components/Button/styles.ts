@@ -15,7 +15,11 @@ export const Container = styled.button<VariantStyledProps>`
     -webkit-box-shadow: ${shadows.default};
     box-shadow: ${shadows.default};
     transition: 180ms ease-in-out;
-    :hover {
+    :disabled {
+      cursor: not-allowed;
+    }
+
+    :not(:disabled):hover {
       transform: scale(1.01);
     }
     :active {

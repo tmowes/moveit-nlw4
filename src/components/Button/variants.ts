@@ -6,7 +6,7 @@ export const variants = {
     ${({ theme: { colors } }) => css`
       color: ${colors.white};
       background: ${colors.orange};
-      :hover {
+      :not([disabled]):hover {
         color: ${tint(0.16, colors.white)};
       }
       :active {
@@ -18,7 +18,7 @@ export const variants = {
     ${({ theme: { colors } }) => css`
       color: ${colors.white};
       background: ${colors.nlwBlue};
-      :hover {
+      :not([disabled]):hover {
         color: ${tint(0.16, colors.white)};
       }
       :active {
@@ -28,13 +28,27 @@ export const variants = {
   `,
   tertiary: css`
     ${({ theme: { colors } }) => css`
-      color: ${colors.orange};
+      color: ${colors.white};
       background: ${colors.shape};
-      :hover {
-        color: ${tint(0.16, colors.orange)};
+      :not([disabled]):hover {
+        color: ${tint(0.16, colors.white)};
+        background: ${colors.orange};
       }
       :active {
-        color: ${shade(0.16, colors.orange)};
+        color: ${shade(0.16, colors.white)};
+      }
+    `}
+  `,
+  cancel: css`
+    ${({ theme: { colors } }) => css`
+      color: ${colors.white};
+      background: ${colors.shape};
+      :not([disabled]):hover {
+        color: ${tint(0.16, colors.white)};
+        background: ${colors.error};
+      }
+      :active {
+        color: ${shade(0.16, colors.white)};
       }
     `}
   `,
@@ -42,7 +56,7 @@ export const variants = {
     ${({ theme: { colors } }) => css`
       color: ${colors.white};
       background: ${colors.shape};
-      :hover {
+      :not([disabled]):hover {
         color: ${tint(0.16, colors.white)};
       }
       :active {

@@ -3,32 +3,48 @@ import * as C from '~/components'
 
 import * as S from './styles'
 
+let countdownTimeout: NodeJS.Timeout
+const initialTimer = 0.1 * 60
+
 const Countdown = () => {
-  const [time, setTime] = useState(25 * 60)
-  const [active, setActive] = useState(false)
+  const [time, setTime] = useState(initialTimer)
+  const [isActive, setIsActive] = useState(false)
+  const [hasFinished, setHasFinished] = useState(false)
 
   const minutes = useMemo(() => Math.floor(time / 60), [time])
+
   const [minLeft, minRight] = useMemo(() => {
     return String(minutes).padStart(2, '0').split('')
   }, [time])
 
   const seconds = useMemo(() => time % 60, [time])
+
   const [secLeft, secRight] = useMemo(() => {
     return String(seconds).padStart(2, '0').split('')
   }, [time])
 
   const startCountdown = useCallback(() => {
-    setActive(true)
+    setIsActive(true)
+  }, [])
+  const resetCountdown = useCallback(() => {
+    clearTimeout(countdownTimeout)
+    setIsActive(false)
+    setTime(initialTimer)
   }, [])
 
   useEffect(() => {
-    if (active && time > 0) {
-      setTimeout(() => {
+    if (isActive && time > 0) {
+      countdownTimeout = setTimeout(() => {
         setTime(prev => prev - 1)
       }, 1000)
+    } else if (isActive && time === 0) {
+      console.log('chegou')
+      setHasFinished(true)
+      setIsActive(false)
     }
+
     // #jornadainfinita
-  }, [active, time])
+  }, [isActive, time])
 
   return (
     <>
@@ -43,12 +59,25 @@ const Countdown = () => {
           <S.NumberRight>{secRight}</S.NumberRight>
         </S.NumberContainer>
       </S.Container>
-      <C.Button
-        label="Iniciar um ciclo"
-        disabled={!active}
-        variant="secondary"
-        onClick={startCountdown}
-      />
+      {hasFinished ? (
+        <C.Button label="Ciclo finalizado" variant="default" disabled />
+      ) : (
+        <>
+          {isActive ? (
+            <C.Button
+              label="Abandonar ciclo"
+              variant="cancel"
+              onClick={resetCountdown}
+            />
+          ) : (
+            <C.Button
+              label="Iniciar um ciclo"
+              variant="secondary"
+              onClick={startCountdown}
+            />
+          )}
+        </>
+      )}
     </>
   )
 }
