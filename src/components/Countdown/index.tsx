@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import * as C from '~/components'
+import { useChallenges } from '~/contexts'
 
 import * as S from './styles'
 
@@ -7,6 +8,7 @@ let countdownTimeout: NodeJS.Timeout
 const initialTimer = 0.1 * 60
 
 const Countdown = () => {
+  const { startNew } = useChallenges()
   const [time, setTime] = useState(initialTimer)
   const [isActive, setIsActive] = useState(false)
   const [hasFinished, setHasFinished] = useState(false)
@@ -26,6 +28,7 @@ const Countdown = () => {
   const startCountdown = useCallback(() => {
     setIsActive(true)
   }, [])
+
   const resetCountdown = useCallback(() => {
     clearTimeout(countdownTimeout)
     setIsActive(false)
@@ -38,9 +41,9 @@ const Countdown = () => {
         setTime(prev => prev - 1)
       }, 1000)
     } else if (isActive && time === 0) {
-      console.log('chegou')
       setHasFinished(true)
       setIsActive(false)
+      startNew()
     }
 
     // #jornadainfinita

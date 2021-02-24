@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { ProgressStyles } from './types'
 
 export const Container = styled.header`
   display: flex;
@@ -19,23 +20,24 @@ export const Bar = styled.div`
     height: 4px;
     border-radius: 4px;
     margin: 0 1.5rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
   `}
 `
-export const Progress = styled.div`
-  ${({ theme: { colors } }) => css`
-    width: 50%;
+export const Progress = styled.div<ProgressStyles>`
+  ${({ progress, theme: { colors } }) => css`
+    width: ${progress}%;
     height: 100%;
+    border-radius: 4px;
     background: ${colors.nlwGreen};
   `}
 `
-export const ProgressText = styled.span`
-  position: absolute;
-  left: 50%;
-  top: 56px;
-  transform: translateX(-50%);
-  font-size: 1rem;
+export const ProgressText = styled.span<ProgressStyles>`
+  ${({ progress }) => css`
+    position: absolute;
+    left: ${progress}%;
+    top: 12px;
+    transform: translateX(-50%);
+    font-size: 1rem;
+  `}
 `
-
-// 'password: #rumoaoproximonivel'

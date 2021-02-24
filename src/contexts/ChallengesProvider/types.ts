@@ -1,0 +1,22 @@
+import { ReactNode } from 'react'
+
+export type ChallengesContextData = {
+  level: number
+  experience: number
+  experienceToNextLevel: number
+  challengesCount: number
+  activeChallenge: Challenge | null
+  levelUp: () => void
+  startNew: () => void
+  resetChallenge: () => void
+}
+
+export type ChallengesProviderProps = {
+  children: ReactNode
+}
+
+export type Challenge = {
+  type: 'body' | 'eye' | string
+  description: string
+  amount: number
+}

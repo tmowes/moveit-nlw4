@@ -14,7 +14,9 @@ const Home: NextPage = () => {
           <C.CompletedChallenges />
           <C.Countdown />
         </S.ProfileView>
-        <S.CountDownView>#</S.CountDownView>
+        <S.CountDownView>
+          <C.ChallengeBox />
+        </S.CountDownView>
       </S.LefSection>
       <S.Title>Hello Julius</S.Title>
       <C.Button label="custom primary" variant="primary" />
