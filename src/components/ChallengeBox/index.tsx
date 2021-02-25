@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import * as C from '~/components'
-import { useChallenges } from '~/contexts'
+import { useChallenges, useCountdown } from '~/contexts'
 import data from './data'
 import * as S from './styles'
 
 const ChallengeBox = () => {
   const { activeChallenge, resetChallenge, completeChallenge } = useChallenges()
+  const { resetCountdown } = useCountdown()
   const { activeTitle, inactiveTitle, inactiveInstructions } = data
+
+  const challengeSucceeded = useCallback(() => {
+    completeChallenge()
+    resetCountdown()
+  }, [])
+
+  const challengeFailed = useCallback(() => {
+    resetChallenge()
+    resetCountdown()
+  }, [resetChallenge, resetCountdown])
 
   return (
     <S.Container>
@@ -25,12 +36,12 @@ const ChallengeBox = () => {
             <C.Button
               label="Falhei"
               variant="cancel"
-              onClick={resetChallenge}
+              onClick={challengeFailed}
             />
             <C.Button
               label="Concluido"
               variant="secondary"
-              onClick={completeChallenge}
+              onClick={challengeSucceeded}
             />
           </S.Footer>
         </S.IsActive>
