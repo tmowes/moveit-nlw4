@@ -5,7 +5,7 @@ import data from './data'
 import * as S from './styles'
 
 const ChallengeBox = () => {
-  const { activeChallenge, resetChallenge } = useChallenges()
+  const { activeChallenge, resetChallenge, completeChallenge } = useChallenges()
   const { activeTitle, inactiveTitle, inactiveInstructions } = data
 
   return (
@@ -27,7 +27,11 @@ const ChallengeBox = () => {
               variant="cancel"
               onClick={resetChallenge}
             />
-            <C.Button label="Concluido" variant="secondary" />
+            <C.Button
+              label="Concluido"
+              variant="secondary"
+              onClick={completeChallenge}
+            />
           </S.Footer>
         </S.IsActive>
       ) : (

@@ -21,9 +21,8 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
   const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null)
 
   const experienceToNextLevel = useMemo(() => {
-    // eslint-disable-next-line no-restricted-properties
-    return Math.pow((level + 1) * 4, 2)
-  }, [])
+    return ((level + 1) * 4) ** 2
+  }, [level])
 
   const levelUp = useCallback(() => {
     setLevel(prev => prev + 1)
@@ -39,6 +38,24 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     setActiveChallenge(null)
   }, [])
 
+  const completeChallenge = useCallback(() => {
+    if (!activeChallenge) {
+      return
+    }
+    const { amount } = activeChallenge
+
+    let finalExperience = experience + amount
+
+    if (finalExperience >= experienceToNextLevel) {
+      finalExperience -= experienceToNextLevel
+      levelUp()
+    }
+
+    setExperience(finalExperience)
+    setActiveChallenge(null)
+    setChallengesCount(prev => prev + 1)
+  }, [activeChallenge, levelUp, setExperience])
+
   const providerValues = {
     level,
     experience,
@@ -48,6 +65,7 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     startNew,
     activeChallenge,
     resetChallenge,
+    completeChallenge,
   }
 
   return (

@@ -1,53 +1,25 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import * as C from '~/components'
-import { useChallenges } from '~/contexts'
-
+import { useCountdown } from '~/contexts'
 import * as S from './styles'
 
-let countdownTimeout: NodeJS.Timeout
-const initialTimer = 0.1 * 60
-
 const Countdown = () => {
-  const { startNew } = useChallenges()
-  const [time, setTime] = useState(initialTimer)
-  const [isActive, setIsActive] = useState(false)
-  const [hasFinished, setHasFinished] = useState(false)
-
-  const minutes = useMemo(() => Math.floor(time / 60), [time])
+  const {
+    minutes,
+    seconds,
+    hasFinished,
+    isActive,
+    resetCountdown,
+    startCountdown,
+  } = useCountdown()
 
   const [minLeft, minRight] = useMemo(() => {
     return String(minutes).padStart(2, '0').split('')
-  }, [time])
-
-  const seconds = useMemo(() => time % 60, [time])
+  }, [])
 
   const [secLeft, secRight] = useMemo(() => {
     return String(seconds).padStart(2, '0').split('')
-  }, [time])
-
-  const startCountdown = useCallback(() => {
-    setIsActive(true)
   }, [])
-
-  const resetCountdown = useCallback(() => {
-    clearTimeout(countdownTimeout)
-    setIsActive(false)
-    setTime(initialTimer)
-  }, [])
-
-  useEffect(() => {
-    if (isActive && time > 0) {
-      countdownTimeout = setTimeout(() => {
-        setTime(prev => prev - 1)
-      }, 1000)
-    } else if (isActive && time === 0) {
-      setHasFinished(true)
-      setIsActive(false)
-      startNew()
-    }
-
-    // #jornadainfinita
-  }, [isActive, time])
 
   return (
     <>

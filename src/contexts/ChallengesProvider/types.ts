@@ -9,6 +9,7 @@ export type ChallengesContextData = {
   levelUp: () => void
   startNew: () => void
   resetChallenge: () => void
+  completeChallenge: () => void
 }
 
 export type ChallengesProviderProps = {

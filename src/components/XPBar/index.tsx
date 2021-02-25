@@ -5,9 +5,11 @@ import * as S from './styles'
 const XPBar = () => {
   const { experience, experienceToNextLevel } = useChallenges()
 
+  console.log(experience)
+
   const percentToNextLevel = useMemo(() => {
     return Math.round((experience / experienceToNextLevel) * 100)
-  }, [])
+  }, [experience])
 
   return (
     <S.Container>
