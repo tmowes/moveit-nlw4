@@ -1,7 +1,9 @@
+/* eslint-disable no-new */
 import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react'
@@ -24,6 +26,10 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     return ((level + 1) * 4) ** 2
   }, [level])
 
+  useEffect(() => {
+    Notification.requestPermission()
+  }, [])
+
   const levelUp = useCallback(() => {
     setLevel(prev => prev + 1)
   }, [])
@@ -32,6 +38,14 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     const randomIndex = Math.floor(Math.random() * challenges.length)
     const challenge = challenges[randomIndex]
     setActiveChallenge(challenge)
+
+    new Audio('/notification.mp3').play()
+
+    if (Notification.permission === 'granted') {
+      new Notification('Novo desafio 🎉', {
+        body: `Valendo ${challenge.amount} xp`,
+      })
+    }
   }, [])
 
   const resetChallenge = useCallback(() => {
