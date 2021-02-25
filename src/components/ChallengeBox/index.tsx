@@ -12,7 +12,7 @@ const ChallengeBox = () => {
   const challengeSucceeded = useCallback(() => {
     completeChallenge()
     resetCountdown()
-  }, [])
+  }, [completeChallenge, resetCountdown])
 
   const challengeFailed = useCallback(() => {
     resetChallenge()

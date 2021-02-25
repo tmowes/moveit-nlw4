@@ -54,7 +54,7 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     setExperience(finalExperience)
     setActiveChallenge(null)
     setChallengesCount(prev => prev + 1)
-  }, [activeChallenge, levelUp, setExperience])
+  }, [activeChallenge, challengesCount, levelUp, experience])
 
   const providerValues = {
     level,

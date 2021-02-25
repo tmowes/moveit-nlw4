@@ -21,6 +21,7 @@ export const CountdownProvider = ({ children }: CountdownProviderProps) => {
   const [time, setTime] = useState(initialTimer)
   const [isActive, setIsActive] = useState(false)
   const [hasFinished, setHasFinished] = useState(false)
+
   const minutes = useMemo(() => Math.floor(time / 60), [time])
   const seconds = useMemo(() => time % 60, [time])
 
@@ -32,7 +33,8 @@ export const CountdownProvider = ({ children }: CountdownProviderProps) => {
     clearTimeout(countdownTimeout)
     setIsActive(false)
     setTime(initialTimer)
-  }, [])
+    setHasFinished(false)
+  }, [hasFinished, isActive, time])
 
   useEffect(() => {
     if (isActive && time > 0) {
@@ -44,9 +46,7 @@ export const CountdownProvider = ({ children }: CountdownProviderProps) => {
       setIsActive(false)
       startNew()
     }
-
-    // #jornadainfinita
-  }, [isActive, time])
+  }, [hasFinished, isActive, time])
 
   const providerValues = {
     hasFinished,

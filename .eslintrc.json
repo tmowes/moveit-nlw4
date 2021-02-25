@@ -18,7 +18,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier", "@typescript-eslint"],
+  "plugins": ["react", "react-hooks", "prettier", "@typescript-eslint"],
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-props-no-spreading": "off",
