@@ -6,12 +6,10 @@ import * as themes from '~/styles/themes'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <AppProvider>
-      <ThemeProvider theme={themes.dark}>
-        <GlobalStyle />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </AppProvider>
+    <ThemeProvider theme={themes.dark}>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </ThemeProvider>
   )
 }
 

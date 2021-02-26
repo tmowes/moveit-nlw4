@@ -14,6 +14,9 @@ export type ChallengesContextData = {
 
 export type ChallengesProviderProps = {
   children: ReactNode
+  level: number
+  experience: number
+  challengesCount: number
 }
 
 export type Challenge = {

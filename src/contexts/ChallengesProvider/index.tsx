@@ -1,4 +1,5 @@
 /* eslint-disable no-new */
+import Cookies from 'js-cookie'
 import {
   createContext,
   useCallback,
@@ -16,10 +17,15 @@ import challenges from '~/data/challenges.json'
 
 export const ChallengesContext = createContext({} as ChallengesContextData)
 
-export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
-  const [level, setLevel] = useState(1)
-  const [experience, setExperience] = useState(0)
-  const [challengesCount, setChallengesCount] = useState(0)
+export const ChallengesProvider = ({
+  children,
+  ...rest
+}: ChallengesProviderProps) => {
+  const [level, setLevel] = useState(rest.level ?? 1)
+  const [experience, setExperience] = useState(rest.experience ?? 0)
+  const [challengesCount, setChallengesCount] = useState(
+    rest.challengesCount ?? 0,
+  )
   const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null)
 
   const experienceToNextLevel = useMemo(() => {
@@ -29,6 +35,12 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
   useEffect(() => {
     Notification.requestPermission()
   }, [])
+
+  useEffect(() => {
+    Cookies.set('level', String(level))
+    Cookies.set('experience', String(experience))
+    Cookies.set('challengesCount', String(challengesCount))
+  }, [level, experience, challengesCount])
 
   const levelUp = useCallback(() => {
     setLevel(prev => prev + 1)
