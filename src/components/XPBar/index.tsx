@@ -9,10 +9,6 @@ const XPBar = () => {
     return Math.round((experience / experienceToNextLevel) * 100)
   }, [experience])
 
-  // const percentToNextLevel = useMemo(() => {
-  //   return Math.round((experience / experienceToNextLevel) * 100)
-  // }, [experience])
-
   return (
     <S.Container>
       <S.XPText>0 xp</S.XPText>

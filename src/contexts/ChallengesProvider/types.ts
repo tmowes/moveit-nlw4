@@ -10,6 +10,7 @@ export type ChallengesContextData = {
   startNew: () => void
   resetChallenge: () => void
   completeChallenge: () => void
+  closeLevelUpModal: () => void
 }
 
 export type ChallengesProviderProps = {

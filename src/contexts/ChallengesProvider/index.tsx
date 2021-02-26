@@ -8,6 +8,8 @@ import {
   useMemo,
   useState,
 } from 'react'
+import * as C from '~/components'
+
 import {
   Challenge,
   ChallengesContextData,
@@ -17,16 +19,15 @@ import challenges from '~/data/challenges.json'
 
 export const ChallengesContext = createContext({} as ChallengesContextData)
 
-export const ChallengesProvider = ({
-  children,
-  ...rest
-}: ChallengesProviderProps) => {
+export const ChallengesProvider = (props: ChallengesProviderProps) => {
+  const { children, ...rest } = props
   const [level, setLevel] = useState(rest.level ?? 1)
   const [experience, setExperience] = useState(rest.experience ?? 0)
   const [challengesCount, setChallengesCount] = useState(
     rest.challengesCount ?? 0,
   )
   const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null)
+  const [isLevelModalOpen, setIsLevelModalOpen] = useState(false)
 
   const experienceToNextLevel = useMemo(() => {
     return ((level + 1) * 4) ** 2
@@ -44,6 +45,11 @@ export const ChallengesProvider = ({
 
   const levelUp = useCallback(() => {
     setLevel(prev => prev + 1)
+    setIsLevelModalOpen(true)
+  }, [])
+
+  const closeLevelUpModal = useCallback(() => {
+    setIsLevelModalOpen(false)
   }, [])
 
   const startNew = useCallback(() => {
@@ -92,11 +98,13 @@ export const ChallengesProvider = ({
     activeChallenge,
     resetChallenge,
     completeChallenge,
+    closeLevelUpModal,
   }
 
   return (
     <ChallengesContext.Provider value={providerValues}>
       {children}
+      {isLevelModalOpen && <C.LevelUpModal />}
     </ChallengesContext.Provider>
   )
 }

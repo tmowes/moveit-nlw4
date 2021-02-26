@@ -20,7 +20,6 @@ export const Bar = styled.div`
     height: 4px;
     border-radius: 4px;
     margin: 0 1.5rem;
-    /* overflow: hidden; */
     position: relative;
   `}
 `
