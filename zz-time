@@ -1,8 +1,11 @@
 
-// 'password: #rumoaoproximonivel'
-// 'password: #jornadainfinita'
-// 'password: #focopraticagrupo'
-// 'password: #neverstoplearning'
+/1/ 'password: #rumoaoproximonivel'
+/2/ 'password: #jornadainfinita'
+/3/ 'password: #focopraticagrupo'
+/4/ 'password: #neverstoplearning'
+/5/ 'password: #missioncomplete'
 
 
-aula 5 37:00
+
+
+import { AiOutlineGithub } from 'react-icons/ai'

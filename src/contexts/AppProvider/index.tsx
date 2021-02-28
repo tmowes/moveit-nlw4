@@ -1,8 +1,8 @@
-import { CountdownProvider } from '../CountdownProvider'
+import { AuthProvider } from '../AuthProvider'
 import { AppProviderProps } from './types'
 
-const AppProvider = ({ children }: AppProviderProps) => {
-  return <CountdownProvider>{children}</CountdownProvider>
+const AppProvider = ({ children, pageProps }: AppProviderProps) => {
+  return <AuthProvider pageProps={pageProps.session}>{children}</AuthProvider>
 }
 
 export default AppProvider

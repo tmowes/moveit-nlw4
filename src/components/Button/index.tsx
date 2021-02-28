@@ -7,13 +7,15 @@ const Button = (props: ButtonProps) => {
     variant = 'default',
     label,
     icon: Icon,
+    leftIcon,
     onClick,
     ...rest
   } = props
   return (
     <S.Container type={type} variant={variant} onClick={onClick} {...rest}>
+      {leftIcon && Icon && <Icon size={20} />}
       <S.Label>{label}</S.Label>
-      {Icon && <Icon size={20} />}
+      {!leftIcon && Icon && <Icon size={20} />}
     </S.Container>
   )
 }

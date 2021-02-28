@@ -36,7 +36,7 @@ const dark = {
     nlwWhite: '#FFFFFF',
     nlwBackground: '#F2F3F5',
     nlwGray: '#DCDDE0',
-    nlwText: '#666666',
+    nlwText: '#888888',
     nlwLink: '#B3B9FF',
     nlwTitle: '#2E384D',
     nlwRed: '#E83F5B',
@@ -44,9 +44,12 @@ const dark = {
     nlwBlue: '#5965E0',
     nlwBlueDark: '#4953B8',
     nlwTwitter: '#2AA9E0',
+    coderBg: '#384F65',
+    coderSide: '#253545',
+    coderCard: '#2F2E41',
   },
   shadows: {
-    default: '2px 2px 16px 6px rgba(0, 0, 0, 0.2)',
+    default: '10px 10px 10px rgba(0, 0, 0, 0.1)',
     smooth: '0 0 60px rgba(0, 0, 0, 0.05)',
   },
 } as const
