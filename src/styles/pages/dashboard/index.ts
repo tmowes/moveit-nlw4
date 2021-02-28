@@ -34,12 +34,19 @@ export const Header = styled.header`
 `
 
 export const ToolBar = styled.div`
-  ${({ theme: { colors } }) => css`
+  ${({ theme: { colors, shadows } }) => css`
     grid-area: toolbar;
-    background: ${colors.black};
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: ${`${colors.nlwWhite}4d`};
+    background-image: ${`linear-gradient(to bottom right, ${`${colors.nlwWhite}33`}, ${`${colors.nlwWhite}03`})`};
+    -webkit-box-shadow: ${shadows.default};
+    box-shadow: ${shadows.default};
+    border-left: 1px solid ${`${colors.white}4d`};
+    border-top: 1px solid ${`${colors.white}cc`};
+    overflow: hidden;
+    backdrop-filter: saturate(180%) blur(6px);
   `}
 `
 

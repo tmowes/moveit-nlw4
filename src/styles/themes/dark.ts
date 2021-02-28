@@ -49,7 +49,7 @@ const dark = {
     coderCard: '#2F2E41',
   },
   shadows: {
-    default: '10px 10px 10px rgba(0, 0, 0, 0.1)',
+    default: '10px 10px 10px rgba(0, 0, 0, 0.3)',
     smooth: '0 0 60px rgba(0, 0, 0, 0.05)',
   },
 } as const

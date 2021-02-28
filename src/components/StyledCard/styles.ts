@@ -12,7 +12,7 @@ export const Container = styled.div`
     border-left: 1px solid ${`${colors.white}4d`};
     border-top: 1px solid ${`${colors.white}cc`};
     overflow: hidden;
-    backdrop-filter: blur(6px);
+    backdrop-filter: saturate(180%) blur(6px);
     margin: 16px auto;
   `}
 `
