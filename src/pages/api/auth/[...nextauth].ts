@@ -12,7 +12,7 @@ const options = {
       return Promise.resolve(session)
     },
     redirect: async (_url: string, _baseUrl: string) => {
-      return Promise.resolve(`${process.env.PRODUCTION_URL}`)
+      return Promise.resolve(`${process.env.NEXT_URL_LOGGED_URL}`)
     },
   },
   providers: [

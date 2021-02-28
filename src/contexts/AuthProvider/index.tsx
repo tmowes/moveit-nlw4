@@ -9,7 +9,7 @@ export const AuthProvider = (props: AuthProviderProps) => {
 
   const signIn = useCallback((event: FormEvent) => {
     event.preventDefault()
-    login('github')
+    login('github', { callbackUrl: process.env.NEXT_URL_LOGGED_URL })
   }, [])
 
   const signOut = useCallback((event: FormEvent) => {
