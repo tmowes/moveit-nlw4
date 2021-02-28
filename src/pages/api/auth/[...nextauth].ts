@@ -3,7 +3,7 @@ import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
 const options = {
-  site: process.env.NEXT_URL,
+  site: process.env.NEXTAUTH_URL,
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     signIn: async (user: any, session: any) => {
