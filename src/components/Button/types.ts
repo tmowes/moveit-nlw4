@@ -6,7 +6,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variants
   icon?: ComponentType<IconBaseProps>
   isActive?: boolean
-  leftIcon: boolean
+  leftIcon?: boolean
 }
 
 export type VariantStyledProps = {
