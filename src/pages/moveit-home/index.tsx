@@ -4,7 +4,7 @@ import React from 'react'
 import * as C from '~/components'
 import { ChallengesProvider } from '~/contexts/ChallengesProvider'
 import { CountdownProvider } from '~/contexts/CountdownProvider'
-import * as S from '~/styles/pages/home'
+import * as S from '~/styles/pages/moveit-home'
 
 export type HomeProps = {
   level: number
