@@ -8,6 +8,7 @@
     "plugin:react/recommended",
     "airbnb",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -26,6 +27,8 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "camelcase": "off",
     "no-unused-vars": "off",
     "no-console": "off",
@@ -59,6 +62,9 @@
     ]
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       "typescript": {
         "project": "./**/tsconfig.json"

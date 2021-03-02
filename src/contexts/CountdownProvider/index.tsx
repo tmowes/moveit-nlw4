@@ -34,7 +34,7 @@ export const CountdownProvider = ({ children }: CountdownProviderProps) => {
     setIsActive(false)
     setTime(initialTimer)
     setHasFinished(false)
-  }, [hasFinished, isActive, time])
+  }, [])
 
   useEffect(() => {
     if (isActive && time > 0) {
@@ -46,7 +46,7 @@ export const CountdownProvider = ({ children }: CountdownProviderProps) => {
       setIsActive(false)
       startNew()
     }
-  }, [hasFinished, isActive, time])
+  }, [hasFinished, isActive, startNew, time])
 
   const providerValues = {
     hasFinished,
