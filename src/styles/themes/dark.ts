@@ -47,6 +47,8 @@ const dark = {
     coderBg: '#384F65',
     coderSide: '#253545',
     coderCard: '#2F2E41',
+    steamBG: '#06092b',
+    steamWhite: '#ffffff',
   },
   shadows: {
     default: '10px 10px 10px rgba(0, 0, 0, 0.3)',
