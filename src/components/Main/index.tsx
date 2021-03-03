@@ -1,9 +1,11 @@
 import * as S from './styles'
+import { MainProps } from './types'
 
-const Main = ({
-  title = 'React Avançado',
-  description = 'Typescript, ReactJS, NextJS e Styled Components',
-}) => {
+const Main = (props: MainProps) => {
+  const {
+    title = 'React Avançado',
+    description = 'Typescript, ReactJS, NextJS e Styled Components',
+  } = props
   return (
     <S.Container>
       <S.Logo

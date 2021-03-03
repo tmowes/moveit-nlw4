@@ -7,7 +7,7 @@ export const Container = styled.main`
     background-color: '#06092b';
     color: '#ffffff';
     /* background-color: '${colors.steamBG}'; */
-    /* color: ${colors.steamWhite}; */
+    /* color: ${colors.white}; */
     display: flex;
     flex-direction: column;
     text-align: center;
